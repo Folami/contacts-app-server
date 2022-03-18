@@ -1,8 +1,11 @@
 const express = require('express')
+const cors = require('cors')
 const morgan = require('morgan')
 const app = express()
 app.use(express.json()) // middeware for parsing application/json
+app.use(cors()) // middeware for allowing cross-origin requests
 app.use(morgan('tiny'))
+app.use(express.static('build'))
 
 let persons = [
     { 
@@ -95,6 +98,7 @@ app.post('/api/persons', (request, response) => {
     response.json(contact)
 })
 
-const PORT = 3001
-app.listen(PORT)
-console.log(`Server running on port ${PORT}`)
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
