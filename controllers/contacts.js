@@ -1,9 +1,9 @@
 const contactsRouter = require('express').Router()
-const Contact = require('../models/note')
+const Contact = require('../models/contact')
 
 contactsRouter.get('/', (request, response) => {
-    Contact.find({}).then(notes => {
-        response.json(notes)
+    Contact.find({}).then(contacts => {
+        response.json(contacts)
     })
 })
 
@@ -46,7 +46,7 @@ contactsRouter.put('/:id', (request, response, next) => {
     const body = request.body
 
     const contact = {
-        content: body.name,
+        name: body.name,
         number: body.number,
     }
 
