@@ -46,8 +46,9 @@ let contacts = [
 ]
 
 app.use(express.json())
-app.use(cors())
 app.use(morgan('dev'))
+app.use(cors())
+app.use(express.static('build'))
 
 const today = new Date()
 const timestamp = today.getTime()
