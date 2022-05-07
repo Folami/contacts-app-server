@@ -28,7 +28,7 @@ if (contactName && contactNumber) {
     })
     contact.save().then(result => {
         console.log('contact saved!')
-        console.log('added ', `${contactName}`, `${contactNumber}`,' to phonebook')
+        console.log('added ', `${contactName}`, `${contactNumber}`,' to contactsList')
     })
 }
 
